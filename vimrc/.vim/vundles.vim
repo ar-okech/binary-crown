@@ -11,7 +11,7 @@
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle (required)
 Bundle "gmarik/vundle"
@@ -142,6 +142,8 @@ Bundle "flazz/vim-colorschemes.git"
 if filereadable(expand("~/.yadr/vim/.vundles.local"))
   source ~/.yadr/vim/.vundles.local
 endif
+
+call vundle#end()
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
