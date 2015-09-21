@@ -273,15 +273,15 @@ if has("gui_running")
 "
 "   Fullscreen options
 "
-  " set guioptions+=c
-  " set guioptions+=R
-  " set guioptions-=m
-  " set guioptions-=r
-  " set guioptions-=b
-  " set guioptions-=T
-  " set guioptions-=R
-  " set guioptions-=L
-  " set guioptions-=e
+  set guioptions+=c
+  set guioptions+=R
+  set guioptions-=m
+  set guioptions-=r
+  set guioptions-=b
+  set guioptions-=T
+  set guioptions-=R
+  set guioptions-=L
+  set guioptions-=e
 
   "set guifont=Inconsolata\ XL:h17,Inconsolata:h20,Monaco:h17
   set guifont=Ubuntu:h12
