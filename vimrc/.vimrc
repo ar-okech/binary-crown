@@ -2,15 +2,21 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Pre vundle --- {{{
+
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
 if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
 endif
 
-" Vundle Initialization ----------- 
+" }}}
+
+" Vundle init --- {{{
+
 filetype off
 set rtp+=~/.vim/bundle/vundle
+
 call vundle#begin()
 
 " This loads all the plugins specified in ~/.vim/vundle.vim
@@ -20,9 +26,12 @@ if filereadable(expand("~/.vim/vundles.vim"))
 endif
 
 call vundle#end()
+
 filetype plugin indent on
 
-" General Config --- {{{
+" }}}
+
+" General config --- {{{
 
 " set number                      "Line numbers are good
 set relativenumber              "Set relative number
@@ -46,11 +55,7 @@ let mapleader=","
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-" Edit the vimrc file
-nnoremap <silent> <Leader>ev :e ~/.vimrc<CR>
-nnoremap <silent> <Leader>sv :so ~/.vimrc<CR>
-
-"increment++
+"increment++ octal, hex, alpha
 set nf=octal,hex,alpha
 
 "turn on syntax highlighting
@@ -67,9 +72,6 @@ set lazyredraw
 
 " Hide the mouse pointer while typing
 set mousehide
-
-" These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 " Same as default except that I remove the 'u' option
 set complete=.,w,b,t
@@ -91,31 +93,18 @@ set autoread
 
 set grepprg=grep\ -nH\ $*
 
-" Underline the current line with '='
-nnoremap <silent> <Leader>u= :t.\|s/./=/g\|:nohls<cr>
-nnoremap <silent> <Leader>u- :t.\|s/./-/g\|:nohls<cr>
-nnoremap <silent> <Leader>u~ :t.\|s/./\\~/g\|:nohls<cr>
-
-" Alright... let's try this out
-imap jj <esc>
-cmap jj <esc>
-
-" Make the current file executable
-nnoremap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
-nnoremap <Leader>rl :bufdo e!<cr>:source ~/.vimrc<cr>
-
 " Highlight the current line and column
 " Don't do this - It makes window redraws painfully slow
 set nocursorline
 set nocursorcolumn
 
-" Turn Off Swap Files ----------- 
+" Turn Off Swap Files -----------
 
 set noswapfile
 set nobackup
 set nowb
 
-" Persistent Undo ----------- 
+" Persistent Undo -----------
 
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
@@ -124,118 +113,24 @@ silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
 
-" QuickSave
-
-noremap <Leader>w :wa<CR>
-vnoremap <Leader>w <C-C>:wa<CR>
-inoremap <Leader>w <C-O>:wa<CR>
-
-" QuickQuit
-
-noremap <Leader>q :quit<CR>
-
-" EmptyLine
-
-nnoremap  gO O<ESC>j
-nnoremap  go o<ESC>j
-
-" Repeat command in visual mode
-
-vnoremap . :normal .<CR>
-
 " Indentation ---
 
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=3
+set softtabstop=3
+set tabstop=3
 set expandtab
 
 " Display tabs and trailing spaces visually
+
 set list listchars=tab:\ \ ,trail:·
 
 set wrap       " wrap lines
 set linebreak  " wrap lines at convenient points
 
-" Desactivate Arrow keys
-
-noremap <Up>  <Esc>
-noremap! <Up> <Esc>
-noremap <Down> <Esc>
-noremap! <Down> <Esc>
-noremap <Left> <Esc>
-noremap! <Left> <Esc>
-noremap <Right> <Esc>
-noremap! <Right> <Esc>
-
-"  Better indentation
-
-vnoremap < <gv
-vnoremap > >gv
-map <Leader>a ggVG
-
-" Show trailing whitespace
-
-map <Leader>x :%s/\s\+$//<CR>
-
-" }}}
-
-" Autogroups --- {{{
-
-:autocmd FocusLost   * set number
-:autocmd FocusGained * set relativenumber
-:autocmd InsertEnter * set number
-:autocmd InsertLeave * set relativenumber
-"autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhiteSpace /\s\+$/
-
-" Reload vimrc
-autocmd! BufWritePost .vimrc source ~/.vimrc
-
-" Giro files
-
-augroup giro_r
-  autocmd!
-  autocmd BufRead,BufNewFile *.ri setfiletype r
-  autocmd BufRead,BufNewFile *.ri set colorcolumn=101
-  autocmd BufRead,BufNewFile *.r setfiletype r
-
-" }}}
-"
-" NERDTree Plugin Settings --- {{{
-
-" Close the NERD Tree with Shift-F7
-nnoremap <F7> :NERDTreeTabsToggle <CR>
-
-" Show the bookmarks table on startup
-" let NERDTreeShowBookmarks=1
-
-" Don't display these kinds of files
-let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
-                   \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
-                   \ '\.embed\.manifest$', '\.embed\.manifest.res$',
-                   \ '\.intermediate\.manifest$', '^mt.dep$',
-                   \ '\.pyc$',
-                   \ '\.avi$',  '\.mpeg$',
-                   \ '\.jpeg$', '\.jpg$', '\.png$',
-                   \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
-
-let g:nerdtree_tabs_open_on_gui_startup = 0
-
-" }}}
-
-" Folds --- {{{
-
-" set foldmethod=indent   "fold based on indent
-set foldmethod=marker
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
-" }}}
-
-" Completion --- {{{
+" Completion ---
 
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
@@ -251,26 +146,135 @@ set wildignore+=tmp/**
 set wildignore+=*/.png,*.jpg,*.gif
 set wildignore+=*/.pyc
 
-" }}}
-
-" Scrolling --- {{{
+" Scrolling
 
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
+" Folds ---
+
+" These commands open folds
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+
+" set foldmethod=indent   "fold based on indent
+set foldmethod=marker
+set foldnestmax=3       "deepest fold is 3 levels
+" set nofoldenable        "dont fold by default
+set foldlevelstart=0
+
+
+" Search Settings ---
+
+set incsearch " Find the next match as we type the search
+set hlsearch " Hilight searches by default
+set viminfo='100,f1 " Save up to 100 marks, enable capital marks
+set ignorecase " Ignore case when searching...
+set smartcase " ...unless we type a capital
+
+" Desactivate arrow keys
+
+noremap <Up>  <Esc>
+noremap! <Up> <Esc>
+noremap <Down> <Esc>
+noremap! <Down> <Esc>
+noremap <Left> <Esc>
+noremap! <Left> <Esc>
+noremap <Right> <Esc>
+noremap! <Right> <Esc>
+
+" Edit the vimrc file
+
+nnoremap <silent> <Leader>ev :e ~/.vimrc<CR>
+nnoremap <silent> <Leader>sv :so ~/.vimrc<CR>
+
+" Underline the current line with '='
+
+nnoremap <silent> <Leader>u= :t.\|s/./=/g\|:nohls<cr>
+nnoremap <silent> <Leader>u- :t.\|s/./-/g\|:nohls<cr>
+nnoremap <silent> <Leader>u~ :t.\|s/./\\~/g\|:nohls<cr>
+
+" Alright... let's try this out
+
+imap jj <esc>
+cmap jj <esc>
+
+" Make the current file executable
+
+nnoremap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
+nnoremap <Leader>rl :bufdo e!<cr>:source ~/.vimrc<cr>
+
+" QuickSave
+
+noremap <Leader>w :wa<CR>
+vnoremap <Leader>w <C-C>:wa<CR>
+inoremap <Leader>w <C-O>:wa<CR>
+
+" QuickQuit
+
+noremap <Leader>q :quit<CR>
+
+" EmptyLine above and below
+
+nnoremap  gO O<ESC>j
+nnoremap  go o<ESC>j
+
+" Repeat command in visual mode
+
+vnoremap . :normal .<CR>
+
+"  Better indentation
+
+vnoremap < <gv
+vnoremap > >gv
+
+" Select file
+map <Leader>a ggVG
+
+" Show trailing whitespace
+
+map <Leader>x :%s/\s\+$//<CR>
+
+" Folding ---
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Kill window
+nnoremap K :q<cr>
+
+" Save
+nnoremap s :w<cr>
+
+" Reselect last-pasted text
+nnoremap gp `[v`]
+
 " }}}
 
 " Gui configs --- {{{
+
+if isdirectory("c:\tools\cshell")
+
+  " g file formats
+  set fileformats=dos
+  set fileformat=dos
+  set fileencodings=cp1252
+  set fileencoding=cp1252
+
+  if has('conceal')
+
+     autocmd VimEnter * :AnsiEsc
+
+  endif
+
+endif
+
 if has("gui_running")
+
 " Show tab number (useful for Cmd-1, Cmd-2.. mapping)
 " For some reason this doesn't work as a regular set command,
 " (the numbers don't show up) so I made it a VimEnter event
   autocmd VimEnter * set guitablabel=%N:\ %t\ %M
 
-  set lines=60
-  set columns=190
-"
 "   Fullscreen options
 "
   set guioptions+=c
@@ -281,10 +285,12 @@ if has("gui_running")
   set guioptions-=T
   set guioptions-=R
   set guioptions-=L
+  set guioptions-=l
   set guioptions-=e
 
   "set guifont=Inconsolata\ XL:h17,Inconsolata:h20,Monaco:h17
-  set guifont=Ubuntu:h12
+  set guifont=Ubuntu\ Mono:h12
+
 else
 "dont load csapprox if we no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
@@ -292,7 +298,56 @@ endif
 
 " }}}
 
-" Colorscheme ----------- {{{
+" Autogroups --- {{{
+
+autocmd FocusLost   * set number
+
+" Save file when losing focus
+autocmd FocusLost   * :silent! wall
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+autocmd FocusGained * set relativenumber
+autocmd InsertEnter * set number
+autocmd InsertLeave * set relativenumber
+"autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
+"au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+" Reload vimrc when edited
+autocmd! BufWritePost .vimrc source ~/.vimrc
+
+" G files
+augroup g_r
+
+  autocmd!
+  autocmd BufNewFile,BufRead *.ri set filetype=r
+  autocmd FileType r set textwidth=100 colorcolumn=101
+
+augroup END
+
+" }}}
+
+" NERDTree --- {{{
+
+" Close the NERD Tree with Shift-F7
+nnoremap <F7> :NERDTreeTabsToggle <CR>
+
+" Don't display these kinds of files
+let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
+                   \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
+                   \ '\.embed\.manifest$', '\.embed\.manifest.res$',
+                   \ '\.intermediate\.manifest$', '^mt.dep$',
+                   \ '\.pyc$',
+                   \ '\.avi$',  '\.mpeg$',
+                   \ '\.jpeg$', '\.jpg$', '\.png$',
+                   \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
+
+let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" }}}
+
+" Colorscheme --- {{{
 
 "tell the term has 256 colors
 set t_Co=256
@@ -311,7 +366,7 @@ colorscheme campfire
 
 " }}}
 
-" Tagbar ----------- {{{
+" Tagbar --- {{{
 
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
@@ -319,22 +374,14 @@ let g:tagbar_autopreview = 1
 
 " }}}
 
-"Search Settings --- {{{
-
-set incsearch " Find the next match as we type the search
-set hlsearch " Hilight searches by default
-set viminfo='100,f1 " Save up to 100 marks, enable capital marks
-set ignorecase " Ignore case when searching...
-set smartcase " ...unless we type a capital
-
-" }}}
-
 " Neocomplcache --- {{{
+
 " A beter autocomplete system!
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_smart_case = 1
+
 " default # of completions is 100, that's crazy
 let g:neocomplcache_max_list = 5
 
@@ -362,7 +409,6 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 " Prevent hanging with python: https://github.com/skwp/dotfiles/issues/163
 let g:neocomplcache_omni_patterns['python'] = ''
-
 
 " }}}
 
@@ -408,11 +454,6 @@ hi EasyMotionTarget ctermbg=none ctermfg=red
 
 " }}}
 
-" Folding --- {{{
-nnoremap <Space> za
-vnoremap <Space> za
-" }}}
-
 " Change the color scheme from a list of color scheme names.
 " Version 2010-09-12 from http://vim.wikia.com/wiki/VimTip341
 " Press key:
@@ -430,7 +471,8 @@ if v:version < 700 || exists('loaded_setcolors') || &cp
   finish
 endif
 
-" Spelling mistakes ---- {{{
+" Spelling mistakes --- {{{
+
 " iabbr cyrpt    crypt
 " iabbr Pdb      import pdb; pdb.set_trace()
 " iabbr reponse  response
