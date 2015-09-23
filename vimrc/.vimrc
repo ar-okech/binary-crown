@@ -33,16 +33,25 @@ filetype plugin indent on
 
 " General config --- {{{
 
-" set number                      "Line numbers are good
-set relativenumber              "Set relative number
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set undolevels=1000             "Undo lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
+" set number                    "Line numbers are good
+"Set relative number
+set relativenumber
+"Allow backspace in insert mode
+set backspace=indent,eol,start
+"Store lots of :cmdline history
+set history=1000
+"Undo lots of :cmdline history
+set undolevels=1000
+"Show incomplete cmds down the bottom
+set showcmd
+"Show current mode down the bottom
+set showmode
+"Disable cursor blink
+set gcr=a:blinkon0
+"No sounds
+set visualbell
+"Reload files changed outside vim
+set autoread
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -98,13 +107,13 @@ set grepprg=grep\ -nH\ $*
 set nocursorline
 set nocursorcolumn
 
-" Turn Off Swap Files -----------
+" Turn Off Swap Files
 
 set noswapfile
 set nobackup
 set nowb
 
-" Persistent Undo -----------
+" Persistent Undo
 
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
@@ -113,7 +122,7 @@ silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
 
-" Indentation ---
+" Indentation
 
 set autoindent
 set smartindent
@@ -132,9 +141,12 @@ set linebreak  " wrap lines at convenient points
 
 " Completion ---
 
+"enable ctrl-n and ctrl-p to scroll thru matches
+set wildmenu
+
 set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+"stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*~
 set wildignore+=vim/backups*
 set wildignore+=sass-cache*
 set wildignore+=DS_Store*
@@ -148,7 +160,8 @@ set wildignore+=*/.pyc
 
 " Scrolling
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+"Start scrolling when we're 8 lines away from margins
+set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
 
@@ -157,36 +170,38 @@ set sidescroll=1
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
-" set foldmethod=indent   "fold based on indent
+"fold based on indent
+" set foldmethod=indent
 set foldmethod=marker
-set foldnestmax=3       "deepest fold is 3 levels
-" set nofoldenable        "dont fold by default
+"deepest fold is 3 levels
+set foldnestmax=3
+"dont fold by default
+" set nofoldenable
 set foldlevelstart=0
-
 
 " Search Settings ---
 
-set incsearch " Find the next match as we type the search
-set hlsearch " Hilight searches by default
-set viminfo='100,f1 " Save up to 100 marks, enable capital marks
-set ignorecase " Ignore case when searching...
-set smartcase " ...unless we type a capital
+" Find the next match as we type the search
+set incsearch
+" Hilight searches by default
+set hlsearch
+" Save up to 100 marks, enable capital marks
+set viminfo='100,f1
+" Ignore case when searching...
+set ignorecase
+" ...unless we type a capital
+set smartcase
 
 " Desactivate arrow keys
 
-noremap <Up>  <Esc>
-noremap! <Up> <Esc>
-noremap <Down> <Esc>
-noremap! <Down> <Esc>
-noremap <Left> <Esc>
-noremap! <Left> <Esc>
-noremap <Right> <Esc>
+noremap  <Up>    <Esc>
+noremap! <Up>    <Esc>
+noremap  <Down>  <Esc>
+noremap! <Down>  <Esc>
+noremap  <Left>  <Esc>
+noremap! <Left>  <Esc>
+noremap  <Right> <Esc>
 noremap! <Right> <Esc>
-
-" Edit the vimrc file
-
-nnoremap <silent> <Leader>ev :e ~/.vimrc<CR>
-nnoremap <silent> <Leader>sv :so ~/.vimrc<CR>
 
 " Underline the current line with '='
 
@@ -199,20 +214,15 @@ nnoremap <silent> <Leader>u~ :t.\|s/./\\~/g\|:nohls<cr>
 imap jj <esc>
 cmap jj <esc>
 
-" Make the current file executable
-
-nnoremap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
-nnoremap <Leader>rl :bufdo e!<cr>:source ~/.vimrc<cr>
-
 " QuickSave
 
-noremap <Leader>w :wa<CR>
-vnoremap <Leader>w <C-C>:wa<CR>
-inoremap <Leader>w <C-O>:wa<CR>
+noremap <Leader>w :wa<cr>
+vnoremap <Leader>w <C-C>:wa<cr>
+inoremap <Leader>w <C-O>:wa<cr>
 
 " QuickQuit
 
-noremap <Leader>q :quit<CR>
+noremap <Leader>q :quit<cr>
 
 " EmptyLine above and below
 
@@ -221,7 +231,7 @@ nnoremap  go o<ESC>j
 
 " Repeat command in visual mode
 
-vnoremap . :normal .<CR>
+vnoremap . :normal .<cr>
 
 "  Better indentation
 
@@ -233,14 +243,14 @@ map <Leader>a ggVG
 
 " Show trailing whitespace
 
-map <Leader>x :%s/\s\+$//<CR>
+map <Leader>x :%s/\s\+$//<cr>
 
 " Folding ---
 nnoremap <Space> za
 vnoremap <Space> za
 
 " Kill window
-nnoremap K :q<cr>
+nnoremap K :qa<cr>
 
 " Save
 nnoremap s :w<cr>
@@ -252,17 +262,18 @@ nnoremap gp `[v`]
 
 " Gui configs --- {{{
 
-if isdirectory("c:\tools\cshell")
+if isdirectory("c:\toolsnt\cshell")
 
   " g file formats
-  set fileformats=dos
-  set fileformat=dos
   set fileencodings=cp1252
   set fileencoding=cp1252
 
+  set fileformats=dos
+  set fileformat=dos
+
   if has('conceal')
 
-     autocmd VimEnter * :AnsiEsc
+     autocmd VimEnter * AnsiEsc
 
   endif
 
@@ -331,7 +342,7 @@ augroup END
 " NERDTree --- {{{
 
 " Close the NERD Tree with Shift-F7
-nnoremap <F7> :NERDTreeTabsToggle <CR>
+nnoremap <F7> :NERDTreeTabsToggle<cr>
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
@@ -343,26 +354,11 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
                    \ '\.jpeg$', '\.jpg$', '\.png$',
                    \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
 
+" quit nerdtree when selecting file
+let NERDTreeQuitOnOpen = 1
+
+" please don't open nerdtree after vim startup even if gui
 let g:nerdtree_tabs_open_on_gui_startup = 0
-
-" }}}
-
-" Colorscheme --- {{{
-
-"tell the term has 256 colors
-set t_Co=256
-
-"let g:solarized_termcolors=256
-set background=dark
-let g:rehash256 = 1
-" colorscheme molokai
-"colorscheme badwolf
-" colorscheme leo
-" colorscheme jiks
-" colorscheme Monokai-chris
-" colorscheme ChocolateLiquor
-colorscheme campfire
-" colorscheme gobo
 
 " }}}
 
@@ -383,7 +379,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_smart_case = 1
 
 " default # of completions is 100, that's crazy
-let g:neocomplcache_max_list = 5
+let g:neocomplcache_max_list = 10
 
 " words less than 3 letters long aren't worth completing
 let g:neocomplcache_auto_completion_start_length = 3
@@ -413,6 +409,7 @@ let g:neocomplcache_omni_patterns['python'] = ''
 " }}}
 
 " Misc --- {{{
+
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -420,18 +417,19 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-nnoremap <F9> :CtrlP<CR>
 
-nnoremap <F1> :OpenSession<CR>
-nnoremap <F2> :source ~/.vimrc<CR>
+nnoremap <F1> :OpenSession<cr>
+nnoremap <F2> :source ~/.vimrc<cr>
+
+nnoremap <F9> :CtrlP<cr>
 
 " }}}
 
 " Vim Airline --- {{{
 
-let g:airline_theme="badwolf"
-let g:airline_section_x=""
-let g:airline_section_y="%y"
+let g:airline_theme = "badwolf"
+let g:airline_section_x = ""
+let g:airline_section_y = "%y"
 set ruler
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 
@@ -443,14 +441,33 @@ let g:session_autosave_periodic = 10
 let g:session_autosave = "yes"
 let g:session_autoload = "yes"
 
-map <Leader>v :source ~/.vimrc<CR>
+map <Leader>v :tabnew ~/.vimrc<cr>
+
+" }}}
+
+" Colorscheme --- {{{
+
+"tell the term has 256 colors
+set t_Co=256
+
+"let g:solarized_termcolors=256
+set background=dark
+let g:rehash256 = 1
+" colorscheme molokai
+" colorscheme badwolf
+" colorscheme leo
+" colorscheme jiks
+" colorscheme Monokai-chris
+" colorscheme ChocolateLiquor
+" colorscheme campfire
+" colorscheme gobo
+colorscheme coldgreen
 
 " }}}
 
 " EasyMotion --- {{{
 
-hi EasyMotionTarget ctermbg=none ctermfg=red
-" hi EasyMotionShade  ctermbg=none ctermbg=gray
+highlight EasyMotionTarget ctermbg=none ctermfg=red
 
 " }}}
 
@@ -467,9 +484,9 @@ hi EasyMotionTarget ctermbg=none ctermfg=red
 "   :SetColors                  (display current scheme names)
 " Set the current color scheme based on time of day:
 "   :SetColors now
-if v:version < 700 || exists('loaded_setcolors') || &cp
-  finish
-endif
+" if v:version < 700 || exists('loaded_setcolors') || &cp
+"   finish
+" endif
 
 " Spelling mistakes --- {{{
 
