@@ -15,7 +15,12 @@ endif
 " Vundle init --- {{{
 
 filetype off
-set rtp+=~/.vim/bundle/vundle
+
+if has("gui_running")
+   set rtp+=c:\users\okecrich\.vim\bundle\Vundle.vim
+else
+   set rtp+=~/.vim/bundle/vundle
+endif
 
 call vundle#begin()
 
@@ -134,7 +139,7 @@ set expandtab
 
 " Display tabs and trailing spaces visually
 
-set list listchars=tab:\ \ ,trail:Â·
+set list listchars=tab:\ \ ,trail:·
 
 set wrap       " wrap lines
 set linebreak  " wrap lines at convenient points
@@ -329,6 +334,7 @@ augroup g_r
 
   autocmd!
   autocmd BufNewFile,BufRead *.ri set filetype=r
+  autocmd BufNewFile,BufRead *.r set filetype=r
   autocmd FileType r set textwidth=100 colorcolumn=101
 
 augroup END
@@ -492,3 +498,5 @@ highlight EasyMotionTarget ctermbg=none ctermfg=red
 " iabbr None  return None
 
 " }}}
+
+
