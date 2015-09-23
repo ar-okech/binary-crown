@@ -262,20 +262,9 @@ nnoremap gp `[v`]
 
 " Gui configs --- {{{
 
-if isdirectory("c:\toolsnt\cshell")
+if has('conceal')
 
-  " g file formats
-  set fileencodings=cp1252
-  set fileencoding=cp1252
-
-  set fileformats=dos
-  set fileformat=dos
-
-  if has('conceal')
-
-     autocmd VimEnter * AnsiEsc
-
-  endif
+  autocmd VimEnter * AnsiEsc
 
 endif
 
@@ -301,6 +290,13 @@ if has("gui_running")
 
   "set guifont=Inconsolata\ XL:h17,Inconsolata:h20,Monaco:h17
   set guifont=Ubuntu\ Mono:h12
+
+  " g file formats
+  set fileencodings=cp1252
+  set fileencoding=cp1252
+
+  set fileformats=dos
+  set fileformat=dos
 
 else
 "dont load csapprox if we no gui support - silences an annoying warning
