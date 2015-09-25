@@ -132,9 +132,9 @@ set undofile
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=3
-set softtabstop=3
-set tabstop=3
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 
 " Display tabs and trailing spaces visually
@@ -163,9 +163,9 @@ set wildignore+=tmp/**
 set wildignore+=*/.png,*.jpg,*.gif
 set wildignore+=*/.pyc
 
-" Scrolling
+" Scrolling ---
 
-"Start scrolling when we're 8 lines away from margins
+" Start scrolling when we're 8 lines away from margins
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
@@ -197,6 +197,8 @@ set ignorecase
 " ...unless we type a capital
 set smartcase
 
+" Remaps ---
+
 " Desactivate arrow keys
 
 noremap  <Up>    <Esc>
@@ -210,58 +212,58 @@ noremap! <Right> <Esc>
 
 " Underline the current line with '='
 
-nnoremap <silent> <Leader>u= :t.\|s/./=/g\|:nohls<cr>
-nnoremap <silent> <Leader>u- :t.\|s/./-/g\|:nohls<cr>
-nnoremap <silent> <Leader>u~ :t.\|s/./\\~/g\|:nohls<cr>
+" nnoremap <silent> <Leader>u= :t.\|s/./=/g\|:nohls<cr>
+" nnoremap <silent> <Leader>u- :t.\|s/./-/g\|:nohls<cr>
+" nnoremap <silent> <Leader>u~ :t.\|s/./\\~/g\|:nohls<cr>
+
+" <F?> key mappings
+nnoremap <F1> :OpenSession<cr>
+nnoremap <F2> :source ~/.vimrc<cr>
+nnoremap <F9> :CtrlP<cr>
 
 " Alright... let's try this out
-
 imap jj <esc>
 cmap jj <esc>
 
-" QuickSave
-
-noremap <Leader>w :wa<cr>
-vnoremap <Leader>w <C-C>:wa<cr>
-inoremap <Leader>w <C-O>:wa<cr>
-
 " QuickQuit
-
 noremap <Leader>q :quit<cr>
 
 " EmptyLine above and below
-
-nnoremap  gO O<ESC>j
-nnoremap  go o<ESC>j
+nnoremap gO O<ESC>j
+nnoremap go o<ESC>j
 
 " Repeat command in visual mode
-
 vnoremap . :normal .<cr>
 
-"  Better indentation
-
+" Better indentation
 vnoremap < <gv
 vnoremap > >gv
 
-" Select file
+" Visual select whole file
 map <Leader>a ggVG
 
-" Show trailing whitespace
+" Walk through the diffs
+map <Leader>d /31m\\|32m<cr>
 
+" Visual replace selected text
+map <Leader>vr :%s::
+
+" Show trailing whitespace
 map <Leader>x :%s/\s\+$//<cr>
 
-" Folding ---
+" Folding  
 nnoremap <Space> za
 vnoremap <Space> za
 
 " Kill window
-nnoremap K :qa<cr>
+nnoremap K :qa!<cr>
 
-" Save
-nnoremap s :w<cr>
+" QuickSave
+
+nnoremap s :wa<cr>
 
 " Reselect last-pasted text
-nnoremap gp `[v`]
+nnoremap lp `[v`]
 
 " }}}
 
@@ -312,10 +314,10 @@ endif
 
 " Autogroups --- {{{
 
-autocmd FocusLost   * set number
+autocmd FocusLost * set number
 
 " Save file when losing focus
-autocmd FocusLost   * :silent! wall
+autocmd FocusLost * :silent! wall
 
 " Resize splits when the window is resized
 au VimResized * :wincmd =
@@ -335,7 +337,7 @@ augroup g_r
   autocmd!
   autocmd BufNewFile,BufRead *.ri set filetype=r
   autocmd BufNewFile,BufRead *.r set filetype=r
-  autocmd FileType r set textwidth=100 colorcolumn=101
+  autocmd FileType r set textwidth=100 colorcolumn=+1
 
 augroup END
 
@@ -419,11 +421,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-nnoremap <F1> :OpenSession<cr>
-nnoremap <F2> :source ~/.vimrc<cr>
-
-nnoremap <F9> :CtrlP<cr>
 
 " }}}
 

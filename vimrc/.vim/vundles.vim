@@ -60,7 +60,11 @@ Plugin 'Shougo/neocomplcache.git'
 Plugin 'briandoll/change-inside-surroundings.vim.git'
 Plugin 'garbas/vim-snipmate.git'
 Plugin 'godlygeek/tabular'
-" Plugin 'sirver/ultisnips.git'
+
+if !has("gui_running")
+   Plugin 'sirver/ultisnips.git'
+endif
+
 Plugin 'honza/vim-snippets'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'skwp/vim-easymotion'
