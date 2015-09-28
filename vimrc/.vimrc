@@ -17,45 +17,157 @@ endif
 filetype off
 
 if has("gui_running")
-   set rtp+=c:\users\okecrich\.vim\bundle\Vundle.vim
+   set runtimepath+=c:\users\okecrich\.vim\bundle\Vundle.vim
 else
-   set rtp+=~/.vim/bundle/vundle
+   set runtimepath+=~/.vim/bundle/vundle
 endif
 
 call vundle#begin()
 
-" This loads all the plugins specified in ~/.vim/vundle.vim
-" Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
+Plugin 'gmarik/vundle'
+
+" Ruby, Rails, Rake...
+Plugin 'astashov/vim-ruby-debugger'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'skwp/vim-ruby-conque'
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-rake.git'
+Plugin 'tpope/vim-rvm.git'
+Plugin 'vim-ruby/vim-ruby.git'
+Plugin 'vim-scripts/Specky.git'
+Plugin 'ck3g/vim-change-hash-syntax'
+
+" Other languages
+" Plugin "briancollins/vim-jst"
+" Plugin "pangloss/vim-javascript"
+
+" Html, Xml, Css, Markdown...
+Plugin 'claco/jasmine.vim'
+Plugin 'digitaltoad/vim-jade.git'
+Plugin 'groenewege/vim-less.git'
+Plugin 'itspriddle/vim-jquery.git'
+Plugin 'jtratner/vim-flavored-markdown.git'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'skwp/vim-html-escape'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'timcharper/textile.vim.git'
+Plugin 'tpope/vim-haml'
+Plugin 'wavded/vim-stylus'
+
+" Git related...
+" Plugin 'gregsexton/gitv'
+" Plugin 'mattn/gist-vim'
+" Plugin 'skwp/vim-git-grep-rails-partial'
+" Plugin 'tjennings/git-grep-vim'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-git'
+" Plugin 'sjl/threesome.vim.git'
+" Plugin 'phleet/vim-mercenary'
+
+" General text editing improvements...
+Plugin 'AndrewRadev/splitjoin.vim'
+"Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/neocomplcache.git'
+Plugin 'briandoll/change-inside-surroundings.vim.git'
+Plugin 'garbas/vim-snipmate.git'
+Plugin 'godlygeek/tabular'
+
+if has("python")
+   Plugin 'sirver/ultisnips.git'
 endif
 
-call vundle#end()
+Plugin 'honza/vim-snippets'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'skwp/vim-easymotion'
+Plugin 'MattesGroeger/vim-bookmarks.git'
+Plugin 'tomtom/tcomment_vim.git'
+"Plugin 'tpope/vim-bundler'
+Plugin 'vim-scripts/IndexedSearch'
+Plugin 'vim-scripts/camelcasemotion.git'
+Plugin 'vim-scripts/matchit.zip.git'
 
+" General vim improvements
+Plugin 'MarcWeber/vim-addon-mw-utils.git'
+"Plugin 'bogado/file-line.git'
+Plugin 'jistr/vim-nerdtree-tabs.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar.git'
+Plugin 'mattn/webapi-vim.git'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'sjl/gundo.vim'
+Plugin 'skwp/YankRing.vim'
+Plugin 'skwp/greplace.vim'
+Plugin 'skwp/vim-conque'
+Plugin 'tomtom/tlib_vim.git'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-endwise.git'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-repeat.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-unimpaired'
+" Don't add the below git repo makes gvim not boot
+"Plugin 'vim-scripts/AutoTag.git'
+Plugin 'vim-scripts/lastpos.vim'
+" Plugin 'vim-scripts/sudo.vim'
+" Plugin xsunsmile/showmarks.git
+Plugin 'terryma/vim-multiple-cursors'
+"vim-misc is required for vim-session
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+
+" Text objects
+Plugin 'austintaylor/vim-indentobject'
+Plugin 'bootleq/vim-textobj-rubysymbol'
+Plugin 'coderifous/textobj-word-column.vim'
+Plugin 'kana/vim-textobj-datetime'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-function'
+Plugin 'kana/vim-textobj-user'
+Plugin 'lucapette/vim-textobj-underscore'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'thinca/vim-textobj-function-javascript'
+Plugin 'vim-scripts/argtextobj.vim'
+
+" Cosmetics, color scheme, Powerline...
+Plugin 'chrisbra/color_highlight.git'
+"Plugin 'skwp/vim-colors-solarized'
+Plugin 'bling/vim-airline.git'
+Plugin 'vim-scripts/TagHighlight.git'
+Plugin 'bogado/file-line.git'
+Plugin 'flazz/vim-colorschemes.git'
+Plugin 'AnsiEsc.vim'
+
+" C/C++
+" Plugin "Valloric/YouCompleteMe"
+
+call vundle#end()
 filetype plugin indent on
 
 " }}}
 
 " General config --- {{{
 
-" set number                    "Line numbers are good
-"Set relative number
+" set relative number
 set relativenumber
-"Allow backspace in insert mode
+" allow backspace in insert mode
 set backspace=indent,eol,start
-"Store lots of :cmdline history
+" store lots of :cmdline history
 set history=1000
-"Undo lots of :cmdline history
+" undo lots of :cmdline history
 set undolevels=1000
-"Show incomplete cmds down the bottom
+" show incomplete cmds down the bottom
 set showcmd
-"Show current mode down the bottom
+" show current mode down the bottom
 set showmode
-"Disable cursor blink
+" disable cursor blink
 set gcr=a:blinkon0
-"No sounds
+" no sounds
 set visualbell
-"Reload files changed outside vim
+" reload files changed outside vim
 set autoread
 
 " Change leader to a comma because the backslash is too far away
@@ -72,25 +184,25 @@ set hidden
 "increment++ octal, hex, alpha
 set nf=octal,hex,alpha
 
-"turn on syntax highlighting
+" turn on syntax highlighting
 syntax on
 
-" Syntax coloring lines that are too long just slows down the world
+" syntax coloring lines that are too long just slows down the world
 set synmaxcol=2048
 
-" Make command line two lines high
+" make command line two lines high
 set ch=2
 
-" Don't update the display while executing macros
+" don't update the display while executing macros
 set lazyredraw
 
-" Hide the mouse pointer while typing
+" hide the mouse pointer while typing
 set mousehide
 
-" Same as default except that I remove the 'u' option
+" same as default except that i remove the 'u' option
 set complete=.,w,b,t
 
-" When completing by tag, show the whole tag, not just the function name
+" when completing by tag, show the whole tag, not just the function name
 set showfulltag
 
 " get rid of the silly characters in separators
@@ -99,10 +211,10 @@ set fillchars = ""
 " Allow the cursor to go in to "invalid" places
 " set virtualedit=all
 
-" Add the unnamed register to the clipboard
+" add the unnamed register to the clipboard
 set clipboard+=unnamed
 
-" Automatically read a file that has changed on disk
+" automatically read a file that has changed on disk
 set autoread
 
 set grepprg=grep\ -nH\ $*
@@ -112,8 +224,7 @@ set grepprg=grep\ -nH\ $*
 set nocursorline
 set nocursorcolumn
 
-" Turn Off Swap Files
-
+" turn off swap files
 set noswapfile
 set nobackup
 set nowb
@@ -128,7 +239,6 @@ set undodir=~/.vim/backups
 set undofile
 
 " Indentation
-
 set autoindent
 set smartindent
 set smarttab
@@ -138,11 +248,12 @@ set tabstop=2
 set expandtab
 
 " Display tabs and trailing spaces visually
-
 set list listchars=tab:\ \ ,trail:·
 
-set wrap       " wrap lines
-set linebreak  " wrap lines at convenient points
+" wrap lines
+set wrap
+" wrap lines at convenient points
+set linebreak
 
 " Completion ---
 
@@ -186,21 +297,22 @@ set foldlevelstart=0
 
 " Search Settings ---
 
-" Find the next match as we type the search
+" find the next match as we type the search
 set incsearch
-" Hilight searches by default
+" hilight searches by default
 set hlsearch
-" Save up to 100 marks, enable capital marks
+" save up to 100 marks, enable capital marks
 set viminfo='100,f1
-" Ignore case when searching...
+" ignore case when searching...
 set ignorecase
 " ...unless we type a capital
 set smartcase
 
-" Remaps ---
+" }}}
+
+" Custom mappings --- {{{
 
 " Desactivate arrow keys
-
 noremap  <Up>    <Esc>
 noremap! <Up>    <Esc>
 noremap  <Down>  <Esc>
@@ -210,16 +322,19 @@ noremap! <Left>  <Esc>
 noremap  <Right> <Esc>
 noremap! <Right> <Esc>
 
-" Underline the current line with '='
-
-" nnoremap <silent> <Leader>u= :t.\|s/./=/g\|:nohls<cr>
-" nnoremap <silent> <Leader>u- :t.\|s/./-/g\|:nohls<cr>
-" nnoremap <silent> <Leader>u~ :t.\|s/./\\~/g\|:nohls<cr>
-
 " <F?> key mappings
 nnoremap <F1> :OpenSession<cr>
 nnoremap <F2> :source ~/.vimrc<cr>
+" close the nerd tree with shift-f7
+nnoremap <F7> :NERDTreeTabsToggle<cr>
 nnoremap <F9> :CtrlP<cr>
+
+" Use clinical leader key to move around windows
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>o <C-w>o
 
 " Alright... let's try this out
 imap jj <esc>
@@ -248,10 +363,10 @@ map <Leader>d /31m\\|32m<cr>
 " Visual replace selected text
 map <Leader>vr :%s::
 
-" Show trailing whitespace
+" Delete trailing whitespace
 map <Leader>x :%s/\s\+$//<cr>
 
-" Folding  
+" Folding
 nnoremap <Space> za
 vnoremap <Space> za
 
@@ -259,7 +374,6 @@ vnoremap <Space> za
 nnoremap K :qa!<cr>
 
 " QuickSave
-
 nnoremap s :wa<cr>
 
 " Reselect last-pasted text
@@ -269,10 +383,9 @@ nnoremap lp `[v`]
 
 " Gui configs --- {{{
 
+" vim ansiescaping plugging
 if has('conceal')
-
   autocmd VimEnter * AnsiEsc
-
 endif
 
 if has("gui_running")
@@ -282,8 +395,7 @@ if has("gui_running")
 " (the numbers don't show up) so I made it a VimEnter event
   autocmd VimEnter * set guitablabel=%N:\ %t\ %M
 
-"   Fullscreen options
-"
+" fullscreen options
   set guioptions+=c
   set guioptions+=R
   set guioptions-=m
@@ -306,7 +418,7 @@ if has("gui_running")
   set fileformat=dos
 
 else
-"dont load csapprox if we no gui support - silences an annoying warning
+" dont load csapprox if we no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
 endif
 
@@ -337,6 +449,10 @@ augroup g_r
   autocmd!
   autocmd BufNewFile,BufRead *.ri set filetype=r
   autocmd BufNewFile,BufRead *.r set filetype=r
+  autocmd BufNewFile,BufRead *.cxx set filetype=cpp
+  if exists('loaded_tcomment')
+    call tcomment#DefineType('r',              tcomment#GetLineC('// %s'))
+  endif
   autocmd FileType r set textwidth=100 colorcolumn=+1
 
 augroup END
@@ -344,9 +460,6 @@ augroup END
 " }}}
 
 " NERDTree --- {{{
-
-" Close the NERD Tree with Shift-F7
-nnoremap <F7> :NERDTreeTabsToggle<cr>
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
@@ -395,19 +508,19 @@ inoremap <D-Space> <C-n>
 " the one in rails.vim, otherwise this plugin will crap out
 let g:neocomplcache_force_overwrite_completefunc = 1
 
-" Define keyword.
+" define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
   let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" Enable heavy omni completion.
+" enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
-" Prevent hanging with python: https://github.com/skwp/dotfiles/issues/163
+" prevent hanging with python: https://github.com/skwp/dotfiles/issues/163
 let g:neocomplcache_omni_patterns['python'] = ''
 
 " }}}
