@@ -449,6 +449,7 @@ augroup g_r
   autocmd!
   autocmd BufNewFile,BufRead *.ri set filetype=r
   autocmd BufNewFile,BufRead *.r set filetype=r
+  autocmd BufNewFile,BufRead *.rh set filetype=r
   autocmd BufNewFile,BufRead *.cxx set filetype=cpp
   if exists('loaded_tcomment')
     call tcomment#DefineType('r',              tcomment#GetLineC('// %s'))
