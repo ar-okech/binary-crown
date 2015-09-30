@@ -452,7 +452,7 @@ augroup g_r
   autocmd BufNewFile,BufRead *.rh set filetype=r
   autocmd BufNewFile,BufRead *.cxx set filetype=cpp
   if exists('loaded_tcomment')
-    call tcomment#DefineType('r',              tcomment#GetLineC('// %s'))
+    call tcomment#DefineType('r', '# %s')
   endif
   autocmd FileType r set textwidth=100 colorcolumn=+1
 
@@ -462,7 +462,7 @@ augroup END
 
 " NERDTree --- {{{
 
-" Don't display these kinds of files
+" don't display these kinds of files
 let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
                    \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
                    \ '\.embed\.manifest$', '\.embed\.manifest.res$',
@@ -475,7 +475,7 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
 " quit nerdtree when selecting file
 let NERDTreeQuitOnOpen = 1
 
-" please don't open nerdtree after vim startup even if gui
+" please don't open nerdtree at vim startup
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " }}}
@@ -490,7 +490,7 @@ let g:tagbar_autopreview = 1
 
 " Neocomplcache --- {{{
 
-" A beter autocomplete system!
+" a better autocomplete system!
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
@@ -502,7 +502,7 @@ let g:neocomplcache_max_list = 10
 " words less than 3 letters long aren't worth completing
 let g:neocomplcache_auto_completion_start_length = 3
 
-" Map standard Ctrl-N completion to Cmd-Space
+" map standard ctrl-n completion to cmd-space
 inoremap <D-Space> <C-n>
 
 " This makes sure we use neocomplcache completefunc instead of
