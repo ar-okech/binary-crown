@@ -27,15 +27,15 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " Ruby, Rails, Rake...
-Plugin 'astashov/vim-ruby-debugger'
-Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'skwp/vim-ruby-conque'
-Plugin 'tpope/vim-rails.git'
-Plugin 'tpope/vim-rake.git'
-Plugin 'tpope/vim-rvm.git'
-Plugin 'vim-ruby/vim-ruby.git'
-Plugin 'vim-scripts/Specky.git'
-Plugin 'ck3g/vim-change-hash-syntax'
+" Plugin 'astashov/vim-ruby-debugger'
+" Plugin 'ecomba/vim-ruby-refactoring'
+" Plugin 'skwp/vim-ruby-conque'
+" Plugin 'tpope/vim-rails.git'
+" Plugin 'tpope/vim-rake.git'
+" Plugin 'tpope/vim-rvm.git'
+" Plugin 'vim-ruby/vim-ruby.git'
+" Plugin 'vim-scripts/Specky.git'
+" Plugin 'ck3g/vim-change-hash-syntax'
 
 " Other languages
 " Plugin "briancollins/vim-jst"
@@ -361,7 +361,8 @@ map <Leader>a ggVG
 map <Leader>d /31m\\|32m<cr>
 
 " Visual replace selected text
-map <Leader>vr :%s::
+map <Leader>r :%s::
+map <Leader>rw :%s:<c-w><c-r>:
 
 " Delete trailing whitespace
 map <Leader>x :%s/\s\+$//<cr>
