@@ -152,7 +152,7 @@ filetype plugin indent on
 " General config --- {{{
 
 " set relative number
-set relativenumber
+" set relativenumber
 " allow backspace in insert mode
 set backspace=indent,eol,start
 " store lots of :cmdline history
@@ -242,9 +242,9 @@ set undofile
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=3
+set softtabstop=3
+set tabstop=3
 set expandtab
 
 " Display tabs and trailing spaces visually
