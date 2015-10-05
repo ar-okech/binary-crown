@@ -16,11 +16,8 @@ endif
 
 filetype off
 
-if has("gui_running")
-   set runtimepath+=c:\users\okecrich\.vim\bundle\Vundle.vim
-else
-   set runtimepath+=~/.vim/bundle/vundle
-endif
+set runtimepath+=c:\users\okecrich\.vim\bundle\Vundle.vim
+set runtimepath+=~/.vim/bundle/vundle
 
 call vundle#begin()
 
@@ -30,11 +27,11 @@ Plugin 'gmarik/vundle'
 " Plugin 'astashov/vim-ruby-debugger'
 " Plugin 'ecomba/vim-ruby-refactoring'
 " Plugin 'skwp/vim-ruby-conque'
-" Plugin 'tpope/vim-rails.git'
-" Plugin 'tpope/vim-rake.git'
-" Plugin 'tpope/vim-rvm.git'
-" Plugin 'vim-ruby/vim-ruby.git'
-" Plugin 'vim-scripts/Specky.git'
+" Plugin 'tpope/vim-rails'
+" Plugin 'tpope/vim-rake'
+" Plugin 'tpope/vim-rvm'
+" Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-scripts/Specky'
 " Plugin 'ck3g/vim-change-hash-syntax'
 
 " Other languages
@@ -43,15 +40,15 @@ Plugin 'gmarik/vundle'
 
 " Html, Xml, Css, Markdown...
 Plugin 'claco/jasmine.vim'
-Plugin 'digitaltoad/vim-jade.git'
-Plugin 'groenewege/vim-less.git'
-Plugin 'itspriddle/vim-jquery.git'
-Plugin 'jtratner/vim-flavored-markdown.git'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'groenewege/vim-less'
+Plugin 'itspriddle/vim-jquery'
+Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'nelstrom/vim-markdown-preview'
 Plugin 'skwp/vim-html-escape'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'timcharper/textile.vim.git'
+Plugin 'slim-template/vim-slim'
+Plugin 'timcharper/textile.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'wavded/vim-stylus'
 
@@ -62,57 +59,57 @@ Plugin 'wavded/vim-stylus'
 " Plugin 'tjennings/git-grep-vim'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-git'
-" Plugin 'sjl/threesome.vim.git'
+" Plugin 'sjl/threesome.vim'
 " Plugin 'phleet/vim-mercenary'
 
 " General text editing improvements...
 Plugin 'AndrewRadev/splitjoin.vim'
 "Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/neocomplcache.git'
-Plugin 'briandoll/change-inside-surroundings.vim.git'
-Plugin 'garbas/vim-snipmate.git'
+Plugin 'Shougo/neocomplcache'
+Plugin 'briandoll/change-inside-surroundings.vim'
+Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 
 if has("python")
-   Plugin 'sirver/ultisnips.git'
+   Plugin 'sirver/ultisnips'
 endif
 
 Plugin 'honza/vim-snippets'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'skwp/vim-easymotion'
-Plugin 'MattesGroeger/vim-bookmarks.git'
-Plugin 'tomtom/tcomment_vim.git'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'tomtom/tcomment_vim'
 "Plugin 'tpope/vim-bundler'
 Plugin 'vim-scripts/IndexedSearch'
-Plugin 'vim-scripts/camelcasemotion.git'
-Plugin 'vim-scripts/matchit.zip.git'
+Plugin 'vim-scripts/camelcasemotion'
+Plugin 'vim-scripts/matchit.zip'
 
 " General vim improvements
-Plugin 'MarcWeber/vim-addon-mw-utils.git'
-"Plugin 'bogado/file-line.git'
-Plugin 'jistr/vim-nerdtree-tabs.git'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'bogado/file-line'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar.git'
-Plugin 'mattn/webapi-vim.git'
+Plugin 'majutsushi/tagbar'
+Plugin 'mattn/webapi-vim'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'scrooloose/syntastic.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'skwp/YankRing.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'skwp/vim-conque'
-Plugin 'tomtom/tlib_vim.git'
+Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-endwise.git'
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-repeat.git'
-Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 " Don't add the below git repo makes gvim not boot
-"Plugin 'vim-scripts/AutoTag.git'
+"Plugin 'vim-scripts/AutoTag'
 Plugin 'vim-scripts/lastpos.vim'
 " Plugin 'vim-scripts/sudo.vim'
-" Plugin xsunsmile/showmarks.git
+" Plugin xsunsmile/showmarks
 Plugin 'terryma/vim-multiple-cursors'
 "vim-misc is required for vim-session
 Plugin 'xolox/vim-misc'
@@ -133,12 +130,12 @@ Plugin 'thinca/vim-textobj-function-javascript'
 Plugin 'vim-scripts/argtextobj.vim'
 
 " Cosmetics, color scheme, Powerline...
-Plugin 'chrisbra/color_highlight.git'
+Plugin 'chrisbra/color_highlight'
 "Plugin 'skwp/vim-colors-solarized'
-Plugin 'bling/vim-airline.git'
-Plugin 'vim-scripts/TagHighlight.git'
-Plugin 'bogado/file-line.git'
-Plugin 'flazz/vim-colorschemes.git'
+Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/TagHighlight'
+Plugin 'bogado/file-line'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'AnsiEsc.vim'
 
 " C/C++
@@ -408,8 +405,7 @@ if has("gui_running")
   set guioptions-=l
   set guioptions-=e
 
-  "set guifont=Inconsolata\ XL:h17,Inconsolata:h20,Monaco:h17
-  set guifont=Ubuntu\ Mono:h12
+  set guifont=Ubuntu\ Mono:h12,Inconsolata\ XL:h17,Inconsolata:h20,Monaco:h17
 
   " g file formats
   set fileencodings=cp1252
@@ -541,6 +537,9 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " Vim Airline --- {{{
 
+" always let airline status live
+let laststatus = 2
+
 let g:airline_theme = "badwolf"
 let g:airline_section_x = ""
 let g:airline_section_y = "%y"
@@ -581,7 +580,7 @@ colorscheme coldgreen
 
 " EasyMotion --- {{{
 
-highlight EasyMotionTarget ctermbg=none ctermfg=red
+highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 " }}}
 
