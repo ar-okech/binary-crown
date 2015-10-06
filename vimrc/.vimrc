@@ -42,7 +42,7 @@ Plugin 'gmarik/vundle'
 Plugin 'claco/jasmine.vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'groenewege/vim-less'
-Plugin 'itspriddle/vim-jquery'
+" Plugin 'itspriddle/vim-jquery'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'nelstrom/vim-markdown-preview'
@@ -141,6 +141,8 @@ Plugin 'AnsiEsc.vim'
 " C/C++
 " Plugin "Valloric/YouCompleteMe"
 
+Plugin 'qualiabyte/vim-colorstepper'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -178,7 +180,7 @@ let mapleader=","
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"increment++ octal, hex, alpha
+" increment++ octal, hex, alpha
 set nf=octal,hex,alpha
 
 " turn on syntax highlighting
@@ -235,7 +237,7 @@ silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
 
-" Indentation
+" indentation
 set autoindent
 set smartindent
 set smarttab
@@ -244,7 +246,7 @@ set softtabstop=3
 set tabstop=3
 set expandtab
 
-" Display tabs and trailing spaces visually
+" display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
 " wrap lines
@@ -252,7 +254,7 @@ set wrap
 " wrap lines at convenient points
 set linebreak
 
-" Completion ---
+" completion ---
 
 "enable ctrl-n and ctrl-p to scroll thru matches
 set wildmenu
@@ -323,58 +325,58 @@ noremap! <Right> <Esc>
 nnoremap <F1> :OpenSession<cr>
 nnoremap <F2> :source ~/.vimrc<cr>
 " close the nerd tree with shift-f7
-nnoremap <F7> :NERDTreeTabsToggle<cr>
+nnoremap <F8> :NERDTreeTabsToggle<cr>
 nnoremap <F9> :CtrlP<cr>
 
-" Use clinical leader key to move around windows
+" use clinical leader key to move around windows
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 nnoremap <Leader>o <C-w>o
 
-" Alright... let's try this out
+" alright... let's try this out
 imap jj <esc>
 cmap jj <esc>
 
-" QuickQuit
+" quickquit
 noremap <Leader>q :quit<cr>
 
-" EmptyLine above and below
+" emptyline above and below
 nnoremap gO O<ESC>j
 nnoremap go o<ESC>j
 
-" Repeat command in visual mode
+" repeat command in visual mode
 vnoremap . :normal .<cr>
 
-" Better indentation
+" better indentation
 vnoremap < <gv
 vnoremap > >gv
 
-" Visual select whole file
+" visual select whole file
 map <Leader>a ggVG
 
-" Walk through the diffs
+" walk through the diffs
 map <Leader>d /31m\\|32m<cr>
 
-" Visual replace selected text
+" visual replace selected text
 map <Leader>r :%s::
 map <Leader>rw :%s:<c-w><c-r>:
 
-" Delete trailing whitespace
+" delete trailing whitespace
 map <Leader>x :%s/\s\+$//<cr>
 
-" Folding
+" folding
 nnoremap <Space> za
 vnoremap <Space> za
 
-" Kill window
+" kill window
 nnoremap K :qa!<cr>
 
-" QuickSave
+" quicksave
 nnoremap s :wa<cr>
 
-" Reselect last-pasted text
+" reselect last-pasted text
 nnoremap lp `[v`]
 
 " }}}
@@ -425,10 +427,10 @@ endif
 
 autocmd FocusLost * set number
 
-" Save file when losing focus
+" save file when losing focus
 autocmd FocusLost * :silent! wall
 
-" Resize splits when the window is resized
+" resize splits when the window is resized
 au VimResized * :wincmd =
 
 autocmd FocusGained * set relativenumber
@@ -502,7 +504,7 @@ let g:neocomplcache_auto_completion_start_length = 3
 " map standard ctrl-n completion to cmd-space
 inoremap <D-Space> <C-n>
 
-" This makes sure we use neocomplcache completefunc instead of
+" this makes sure we use neocomplcache completefunc instead of
 " the one in rails.vim, otherwise this plugin will crap out
 let g:neocomplcache_force_overwrite_completefunc = 1
 
@@ -525,7 +527,7 @@ let g:neocomplcache_omni_patterns['python'] = ''
 
 " Misc --- {{{
 
-" Enable omni completion.
+" enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -583,23 +585,6 @@ colorscheme coldgreen
 highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 " }}}
-
-" Change the color scheme from a list of color scheme names.
-" Version 2010-09-12 from http://vim.wikia.com/wiki/VimTip341
-" Press key:
-"   F8                next scheme
-"   Shift-F8          previous scheme
-"   Alt-F8            random scheme
-" Set the list of color schemes used by the above (default is 'all'):
-"   :SetColors all              (all $VIMRUNTIME/colors/*.vim)
-"   :SetColors my               (names built into script)
-"   :SetColors blue slate ron   (these schemes)
-"   :SetColors                  (display current scheme names)
-" Set the current color scheme based on time of day:
-"   :SetColors now
-" if v:version < 700 || exists('loaded_setcolors') || &cp
-"   finish
-" endif
 
 " Spelling mistakes --- {{{
 
