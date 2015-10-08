@@ -204,6 +204,9 @@ set lazyredraw
 " hide the mouse pointer while typing
 set mousehide
 
+" global replaces during replacing
+set gdefault
+
 " same as default except that i remove the 'u' option
 set complete=.,w,b,t
 
@@ -398,6 +401,15 @@ nnoremap s :wa<cr>
 
 " reselect last-pasted text
 nnoremap lp `[v`]
+
+" keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
 
 " }}}
 
