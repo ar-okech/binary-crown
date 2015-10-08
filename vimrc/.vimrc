@@ -150,7 +150,13 @@ filetype plugin indent on
 
 " General config --- {{{
 
-" set relative number
+" split positions
+set splitbelow
+set splitright
+
+set autowrite
+set autoread
+
 " set relativenumber
 " allow backspace in insert mode
 set backspace=indent,eol,start
@@ -245,6 +251,15 @@ set shiftwidth=3
 set softtabstop=3
 set tabstop=3
 set expandtab
+set shiftround
+
+set title
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
 
 " display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -334,6 +349,11 @@ nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 nnoremap <Leader>o <C-w>o
+
+" maximize the height of the current split
+nnoremap <Leader>_ <C-w>_
+" restore the size
+nnoremap <Leader>= <C-w>=
 
 " alright... let's try this out
 imap jj <esc>
