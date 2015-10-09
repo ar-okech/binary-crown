@@ -425,6 +425,7 @@ if has("gui_running")
 " Show tab number (useful for Cmd-1, Cmd-2.. mapping)
 " For some reason this doesn't work as a regular set command,
 " (the numbers don't show up) so I made it a VimEnter event
+  autocmd GUIEnter * simalt ~n
   autocmd VimEnter * set guitablabel=%N:\ %t\ %M
 
 " fullscreen options
@@ -617,7 +618,6 @@ colorscheme coldgreen
 highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 " }}}
-
 " Spelling mistakes --- {{{
 
 " iabbr cyrpt    crypt
