@@ -117,16 +117,16 @@ Plugin 'xolox/vim-session'
 
 " Text objects
 Plugin 'austintaylor/vim-indentobject'
-Plugin 'bootleq/vim-textobj-rubysymbol'
+" Plugin 'bootleq/vim-textobj-rubysymbol'
 Plugin 'coderifous/textobj-word-column.vim'
-Plugin 'kana/vim-textobj-datetime'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'kana/vim-textobj-function'
-Plugin 'kana/vim-textobj-user'
+" Plugin 'kana/vim-textobj-datetime'
+" Plugin 'kana/vim-textobj-entire'
+" Plugin 'kana/vim-textobj-function'
+" Plugin 'kana/vim-textobj-user'
 Plugin 'lucapette/vim-textobj-underscore'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'thinca/vim-textobj-function-javascript'
+" Plugin 'nelstrom/vim-textobj-rubyblock'
+" Plugin 'thinca/vim-textobj-function-javascript'
 Plugin 'vim-scripts/argtextobj.vim'
 
 " Cosmetics, color scheme, Powerline...
@@ -396,8 +396,8 @@ vnoremap <Space> za
 " kill window
 nnoremap K :qa!<cr>
 
-" quicksave
-nnoremap s :wa<cr>
+" quicksave if saves
+nnoremap s :xa<cr>
 
 " reselect last-pasted text
 nnoremap lp `[v`]
@@ -618,6 +618,7 @@ colorscheme coldgreen
 highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 " }}}
+
 " Spelling mistakes --- {{{
 
 " iabbr cyrpt    crypt
