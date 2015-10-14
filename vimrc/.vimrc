@@ -327,92 +327,6 @@ set smartcase
 
 " }}}
 
-" Custom mappings --- {{{
-
-" Desactivate arrow keys
-noremap  <Up>    <Esc>
-noremap! <Up>    <Esc>
-noremap  <Down>  <Esc>
-noremap! <Down>  <Esc>
-noremap  <Left>  <Esc>
-noremap! <Left>  <Esc>
-noremap  <Right> <Esc>
-noremap! <Right> <Esc>
-
-" <F?> key mappings
-nnoremap <F1> :OpenSession<cr>
-nnoremap <F2> :source ~/.vimrc<cr>
-" close the nerd tree with shift-f7
-nnoremap <F8> :NERDTreeTabsToggle<cr>
-nnoremap <F9> :CtrlP<cr>
-
-" use clinical leader key to move around windows
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
-nnoremap <Leader>o <C-w>o
-
-" maximize the height of the current split
-nnoremap <Leader>_ <C-w>_
-" restore the size
-nnoremap <Leader>= <C-w>=
-
-" alright... let's try this out
-imap jj <esc>
-cmap jj <esc>
-
-" quickquit
-noremap <Leader>q :quit<cr>
-
-" emptyline above and below
-nnoremap gO O<ESC>j
-nnoremap go o<ESC>j
-
-" repeat command in visual mode
-vnoremap . :normal .<cr>
-
-" better indentation
-vnoremap < <gv
-vnoremap > >gv
-
-" visual select whole file
-map <Leader>a ggVG
-
-" walk through the diffs
-map <Leader>d /31m\\|32m<cr>
-
-" visual replace selected text
-map <Leader>r :%s::
-map <Leader>rw :%s:<c-w><c-r>:
-
-" delete trailing whitespace
-map <Leader>x :%s/\s\+$//<cr>
-
-" folding
-nnoremap <Space> za
-vnoremap <Space> za
-
-" kill window
-nnoremap K :qa!<cr>
-
-" quicksave if saves
-nnoremap s :xa<cr>
-
-" reselect last-pasted text
-nnoremap lp `[v`]
-
-" keep search matches in the middle of the window.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-" same when jumping around
-nnoremap g; g;zz
-nnoremap g, g,zz
-nnoremap <c-o> <c-o>zz
-
-" }}}
-
 " Gui configs --- {{{
 
 " vim ansiescaping plugging
@@ -619,6 +533,92 @@ highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 " }}}
 
+" Custom mappings --- {{{
+
+" Desactivate arrow keys
+noremap  <Up>    <Esc>
+noremap! <Up>    <Esc>
+noremap  <Down>  <Esc>
+noremap! <Down>  <Esc>
+noremap  <Left>  <Esc>
+noremap! <Left>  <Esc>
+noremap  <Right> <Esc>
+noremap! <Right> <Esc>
+
+" <F?> key mappings
+nnoremap <F1> :OpenSession<cr>
+nnoremap <F2> :source ~/.vimrc<cr>
+" close the nerd tree with shift-f7
+nnoremap <F8> :NERDTreeTabsToggle<cr>
+nnoremap <F9> :CtrlP<cr>
+
+" use clinical leader key to move around windows
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>o <C-w>o
+
+" maximize the height of the current split
+nnoremap <Leader>_ <C-w>_
+" restore the size
+nnoremap <Leader>= <C-w>=
+
+" alright... let's try this out
+imap jj <esc>
+cmap jj <esc>
+
+" quickquit
+noremap <Leader>q :quit<cr>
+
+" emptyline above and below
+nnoremap gO O<ESC>j
+nnoremap go o<ESC>j
+
+" repeat command in visual mode
+vnoremap . :normal .<cr>
+
+" better indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" visual select whole file
+map <Leader>a ggVG
+
+" walk through the diffs
+map <Leader>d /31m\\|32m<cr>
+
+" visual replace selected text
+map <Leader>r :%s::
+map <Leader>rw :%s:<c-w><c-r>:
+
+" delete trailing whitespace
+map <Leader>x :%s/\s\+$//<cr>
+
+" folding
+nnoremap <Space> za
+vnoremap <Space> za
+
+" kill window
+nnoremap K :qa!<cr>
+
+" quicksave if saves
+nnoremap s :wa<cr>
+
+" reselect last-pasted text
+nnoremap lp `[v`]
+
+" keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
+
+" }}}
+
 " Spelling mistakes --- {{{
 
 " iabbr cyrpt    crypt
@@ -627,5 +627,4 @@ highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 " iabbr None  return None
 
 " }}}
-
 
