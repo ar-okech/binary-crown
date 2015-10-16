@@ -523,7 +523,8 @@ let g:rehash256 = 1
 " colorscheme ChocolateLiquor
 " colorscheme campfire
 " colorscheme gobo
-colorscheme coldgreen
+" colorscheme coldgreen
+colorscheme BlackSea
 
 " }}}
 
