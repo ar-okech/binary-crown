@@ -534,6 +534,14 @@ highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 " }}}
 
+" Vim bookmarks --- {{{
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '>>'
+let g:bookmark_highlight_lines = 1
+" }}}
+"
+
 " Custom mappings --- {{{
 
 " Desactivate arrow keys
