@@ -90,7 +90,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'mattn/webapi-vim'
+" Plugin 'mattn/webapi-vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -111,7 +111,7 @@ Plugin 'vim-scripts/lastpos.vim'
 " Plugin 'vim-scripts/sudo.vim'
 " Plugin xsunsmile/showmarks
 Plugin 'terryma/vim-multiple-cursors'
-"vim-misc is required for vim-session
+" vim-misc is required for vim-session
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 
@@ -123,7 +123,7 @@ Plugin 'coderifous/textobj-word-column.vim'
 " Plugin 'kana/vim-textobj-entire'
 " Plugin 'kana/vim-textobj-function'
 " Plugin 'kana/vim-textobj-user'
-Plugin 'lucapette/vim-textobj-underscore'
+" Plugin 'lucapette/vim-textobj-underscore'
 Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'nelstrom/vim-textobj-rubyblock'
 " Plugin 'thinca/vim-textobj-function-javascript'
@@ -136,12 +136,13 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/TagHighlight'
 Plugin 'bogado/file-line'
 Plugin 'flazz/vim-colorschemes'
+" color ansi characters
 Plugin 'AnsiEsc.vim'
 
 " C/C++
 " Plugin "Valloric/YouCompleteMe"
 
-Plugin 'qualiabyte/vim-colorstepper'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
@@ -196,7 +197,7 @@ syntax on
 set synmaxcol=2048
 
 " make command line two lines high
-set ch=2
+set cmdheight=2
 
 " don't update the display while executing macros
 set lazyredraw
@@ -386,7 +387,7 @@ autocmd InsertLeave * set relativenumber
 "autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
 "au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
-" Reload vimrc when edited
+" reload vimrc when edited
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
 " G files
@@ -502,6 +503,8 @@ set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 let g:session_autosave_periodic = 10
 let g:session_autosave = "yes"
 let g:session_autoload = "yes"
+" don't lock sessions
+let g:session_lock_enabled = 0
 
 map <Leader>v :tabnew ~/.vimrc<cr>
 
@@ -535,12 +538,13 @@ highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 " }}}
 
 " Vim bookmarks --- {{{
+
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '>>'
 let g:bookmark_highlight_lines = 1
+
 " }}}
-"
 
 " Custom mappings --- {{{
 
