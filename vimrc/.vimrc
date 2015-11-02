@@ -98,13 +98,13 @@ Plugin 'sjl/gundo.vim'
 Plugin 'skwp/YankRing.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'skwp/vim-conque'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-endwise'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'tpope/vim-abolish'
+" Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-repeat'
+" Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
+" Plugin 'tpope/vim-unimpaired'
 " Don't add the below git repo makes gvim not boot
 "Plugin 'vim-scripts/AutoTag'
 Plugin 'vim-scripts/lastpos.vim'
@@ -394,14 +394,15 @@ autocmd! BufWritePost .vimrc source ~/.vimrc
 augroup g_r
 
   autocmd!
-  autocmd BufNewFile,BufRead *.ri set filetype=r
-  autocmd BufNewFile,BufRead *.r set filetype=r
-  autocmd BufNewFile,BufRead *.rh set filetype=r
+  autocmd BufNewFile,BufRead *.ri set filetype=gr
+  autocmd BufNewFile,BufRead *.r set filetype=gr
+  autocmd BufNewFile,BufRead *.rh set filetype=gr
+  autocmd BufNewFile,BufRead *.hxx set filetype=h
   autocmd BufNewFile,BufRead *.cxx set filetype=cpp
   if exists('loaded_tcomment')
-    call tcomment#DefineType('r', '# %s')
+    call tcomment#DefineType('gr', '# %s')
   endif
-  autocmd FileType r set textwidth=100 colorcolumn=+1
+  autocmd FileType gr set textwidth=100 colorcolumn=+1
 
 augroup END
 
