@@ -98,7 +98,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'skwp/YankRing.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'skwp/vim-conque'
-" Plugin 'tomtom/tlib_vim'
+Plugin 'tomtom/tlib_vim'
 " Plugin 'tpope/vim-abolish'
 " Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-ragtag'
@@ -399,9 +399,9 @@ augroup g_r
   autocmd BufNewFile,BufRead *.rh set filetype=gr
   autocmd BufNewFile,BufRead *.hxx set filetype=h
   autocmd BufNewFile,BufRead *.cxx set filetype=cpp
-  if exists('loaded_tcomment')
+  " if exists('loaded_tcomment')
     call tcomment#DefineType('gr', '# %s')
-  endif
+  " endif
   autocmd FileType gr set textwidth=100 colorcolumn=+1
 
 augroup END
