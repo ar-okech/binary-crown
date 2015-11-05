@@ -428,6 +428,13 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " }}}
 
+" SuperTab --- {{{
+
+" Navigate the completion menu from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" }}}
+
 " Tagbar --- {{{
 
 let g:tagbar_autoclose = 1
