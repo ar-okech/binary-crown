@@ -35,8 +35,8 @@ Plugin 'gmarik/vundle'
 " Plugin 'ck3g/vim-change-hash-syntax'
 
 " Other languages
-" Plugin "briancollins/vim-jst"
-" Plugin "pangloss/vim-javascript"
+" Plugin 'briancollins/vim-jst'
+" Plugin 'pangloss/vim-javascript'
 
 " Html, Xml, Css, Markdown...
 Plugin 'claco/jasmine.vim'
@@ -458,7 +458,7 @@ let g:neocomplcache_max_list = 10
 let g:neocomplcache_auto_completion_start_length = 3
 
 " map standard ctrl-n completion to cmd-space
-inoremap <D-Space> <C-n>
+" inoremap <D-Space> <C-n>
 
 " this makes sure we use neocomplcache completefunc instead of
 " the one in rails.vim, otherwise this plugin will crap out
@@ -499,6 +499,7 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 let laststatus = 2
 
 let g:airline_theme = "badwolf"
+let g:airline_section_b = '%{strftime("%b %d %H:%M")}'
 let g:airline_section_x = ""
 let g:airline_section_y = "%y"
 set ruler
