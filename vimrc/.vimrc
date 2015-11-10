@@ -498,12 +498,16 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 " always let airline status live
 let laststatus = 2
 
-let g:airline_theme = "badwolf"
+source ~/.vim/timekeeper.vim
+let g:airline_theme = "luna"
 let g:airline_section_b = '%{strftime("%b %d %H:%M")}'
-let g:airline_section_x = ""
+let g:airline_section_x = '%{g:beginsessiontime}'
 let g:airline_section_y = "%y"
 set ruler
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+if !exists('g:beginsessiontime')
+   call TimeKeeper()
+endif
 
 " }}}
 
@@ -537,6 +541,7 @@ let g:rehash256 = 1
 " colorscheme gobo
 " colorscheme coldgreen
 colorscheme BlackSea
+colorscheme solarized
 
 " }}}
 
@@ -573,6 +578,7 @@ nnoremap <F2> :source ~/.vimrc<cr>
 " close the nerd tree with shift-f7
 nnoremap <F8> :NERDTreeTabsToggle<cr>
 nnoremap <F9> :CtrlP<cr>
+nnoremap <F12> :call TimeKeeper()<cr>
 
 " use clinical leader key to move around windows
 nnoremap <Leader>h <C-w>h
@@ -650,3 +656,22 @@ nnoremap <c-o> <c-o>zz
 
 " }}}
 
+" timesheet
+function! s:getminute(currentsessiontime)
+  let l:hour = strftime("%H",a:currentsessiontime) * 60
+  let l:minute = strftime("%M",a:currentsessiontime)
+  return l:hour + l:minute
+endfunction
+
+function! TimeKeeper()
+
+   let l:currentsessiontime = localtime()
+   if !exists('g:beginsessiontime')
+      let g:beginsessiontime = l:currentsessiontime
+   endif
+
+   let l:timeduration = s:getminute(l:currentsessiontime) - s:getminute(g:beginsessiontime)
+   let g:airline_section_x = ( l:timeduration/60 ).'h'.(l:timeduration % 60)
+
+endfunction
+" =====
