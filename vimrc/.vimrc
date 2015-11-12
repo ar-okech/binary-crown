@@ -416,6 +416,7 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
                    \ '\.embed\.manifest$', '\.embed\.manifest.res$',
                    \ '\.intermediate\.manifest$', '^mt.dep$',
                    \ '\.pyc$',
+                   \ '\.rtf$',
                    \ '\.avi$',  '\.mpeg$',
                    \ '\.jpeg$', '\.jpg$', '\.png$',
                    \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
@@ -523,13 +524,13 @@ autocmd FocusLost * call TimeKeeper()
 "
 " always let airline status live
 let laststatus = 2
+set ruler
+set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 
 let g:airline_theme = "luna"
 let g:airline_section_b = '%{strftime("%b %d %H:%M")}'
 let g:airline_section_x = '%{g:beginsessiontime}'
 let g:airline_section_y = "%y"
-set ruler
-set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 
 " }}}
 
@@ -636,7 +637,7 @@ vnoremap > >gv
 map <Leader>a ggVG
 
 " walk through the diffs
-map <Leader>d /31m\\|32m<cr>
+map <Leader>d /[1;<cr>
 
 " visual replace selected text
 map <Leader>r :%s::
