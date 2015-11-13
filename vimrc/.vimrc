@@ -418,7 +418,7 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
                    \ '\.embed\.manifest$', '\.embed\.manifest.res$',
                    \ '\.intermediate\.manifest$', '^mt.dep$',
                    \ '\.pyc$',
-                   \ '\.rtf$',
+                   \ '\.rtf$', '\.mod$', '\.dif$', '\.dff$', '\.docgen$', '\.rvc', 
                    \ '\.avi$',  '\.mpeg$',
                    \ '\.jpeg$', '\.jpg$', '\.png$',
                    \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
