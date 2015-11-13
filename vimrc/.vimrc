@@ -394,11 +394,13 @@ autocmd! BufWritePost .vimrc source ~/.vimrc
 augroup g_r
 
   autocmd!
-  autocmd BufNewFile,BufRead *.ri set filetype=gr
+  autocmd BufNewFile,BufRead *.cxx set filetype=cpp
+  autocmd BufNewFile,BufRead *.hxx set filetype=h
   autocmd BufNewFile,BufRead *.r set filetype=gr
   autocmd BufNewFile,BufRead *.rh set filetype=gr
-  autocmd BufNewFile,BufRead *.hxx set filetype=h
-  autocmd BufNewFile,BufRead *.cxx set filetype=cpp
+  autocmd BufNewFile,BufRead *.ri set filetype=gr
+  autocmd BufNewFile,BufRead *.id set filetype=gr
+  autocmd BufNewFile,BufRead *.ix set filetype=gr
   " if exists('loaded_tcomment')
     call tcomment#DefineType('gr', '# %s')
   " endif
