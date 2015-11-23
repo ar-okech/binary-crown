@@ -323,7 +323,7 @@ set hlsearch
 set viminfo='100,f1
 " ignore case when searching...
 set ignorecase
-" ...unless we type a capital
+" unless we type a capital
 set smartcase
 
 " }}}
@@ -565,8 +565,9 @@ let g:rehash256 = 1
 " colorscheme campfire
 " colorscheme gobo
 " colorscheme coldgreen
-colorscheme BlackSea
+" colorscheme BlackSea
 " colorscheme solarized
+colorscheme Chasing_Logic
 
 " }}}
 
@@ -636,10 +637,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " visual select whole file
-map <Leader>a ggVG
+" map <Leader>a ggVG
 
 " walk through the diffs
-map <Leader>d /[1;<cr>
+map <Leader>d /[0;\|[1;<cr>
 
 " visual replace selected text
 map <Leader>r :%s::
@@ -659,7 +660,7 @@ nnoremap K :qa!<cr>
 nnoremap s :wa<cr>
 
 " reselect last-pasted text
-nnoremap lp `[v`]
+" nnoremap lp `[v`]
 
 " keep search matches in the middle of the window.
 nnoremap n nzzzv
