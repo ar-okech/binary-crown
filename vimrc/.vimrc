@@ -63,18 +63,18 @@ Plugin 'wavded/vim-stylus'
 " Plugin 'phleet/vim-mercenary'
 
 " General text editing improvements...
-Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'andrewRadev/splitjoin.vim'
 "Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/neocomplcache'
+Plugin 'shougo/neocomplcache'
 Plugin 'briandoll/change-inside-surroundings.vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 
-if has("python")
-   Plugin 'sirver/ultisnips'
-endif
+" snippets
+" Plugin 'sirver/ultisnips'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
+Plugin 'shougo/neosnippet'
 
-Plugin 'honza/vim-snippets'
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'skwp/vim-easymotion'
 Plugin 'MattesGroeger/vim-bookmarks'
@@ -85,7 +85,7 @@ Plugin 'vim-scripts/camelcasemotion'
 Plugin 'vim-scripts/matchit.zip'
 
 " General vim improvements
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'marcWeber/vim-addon-mw-utils'
 "Plugin 'bogado/file-line'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
@@ -137,10 +137,10 @@ Plugin 'vim-scripts/TagHighlight'
 Plugin 'bogado/file-line'
 Plugin 'flazz/vim-colorschemes'
 " color ansi characters
-Plugin 'AnsiEsc.vim'
+Plugin 'ansiesc.vim'
 
 " C/C++
-" Plugin "Valloric/YouCompleteMe"
+" Plugin "valloric/youcompleteme"
 
 Plugin 'ervandew/supertab'
 
@@ -550,7 +550,7 @@ map <Leader>v :tabnew ~/.vimrc<cr>
 
 " Colorscheme --- {{{
 
-"tell the term has 256 colors
+"tell vim terminal supports 256 colors
 set t_Co=256
 
 "let g:solarized_termcolors=256
@@ -640,7 +640,7 @@ vnoremap > >gv
 " map <Leader>a ggVG
 
 " walk through the diffs
-map <Leader>d /[0;\|[1;<cr>
+map <Leader>d /[1;<cr>
 
 " visual replace selected text
 map <Leader>r :%s::
