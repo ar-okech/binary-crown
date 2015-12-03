@@ -71,9 +71,8 @@ Plugin 'godlygeek/tabular'
 
 " snippets
 " Plugin 'sirver/ultisnips'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
-Plugin 'shougo/neosnippet'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'skwp/vim-easymotion'
@@ -434,7 +433,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 " SuperTab --- {{{
 
 " Navigate the completion menu from top to bottom
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " }}}
 
@@ -640,7 +639,7 @@ vnoremap > >gv
 " map <Leader>a ggVG
 
 " walk through the diffs
-map <Leader>d /[1;<cr>
+map <Leader>d /;3<cr>
 
 " visual replace selected text
 map <Leader>r :%s::
