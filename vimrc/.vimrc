@@ -75,7 +75,7 @@ if has("python")
    Plugin 'sjl/gundo.vim'
 endif
 " Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'skwp/vim-easymotion'
@@ -404,6 +404,7 @@ augroup g_r
     call tcomment#DefineType('gr', '# %s')
   " endif
   autocmd FileType gr set textwidth=100 colorcolumn=+1
+  autocmd FileType gr :UltiSnipsAddFiletypes gr.cpp
 
 augroup END
 
