@@ -70,8 +70,11 @@ Plugin 'briandoll/change-inside-surroundings.vim'
 Plugin 'godlygeek/tabular'
 
 " snippets
-" Plugin 'sirver/ultisnips'
-Plugin 'garbas/vim-snipmate'
+if has("python")
+   Plugin 'sirver/ultisnips'
+   Plugin 'sjl/gundo.vim'
+endif
+" Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 Plugin 'nelstrom/vim-visual-star-search'
@@ -93,7 +96,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
 Plugin 'skwp/YankRing.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'skwp/vim-conque'
@@ -140,8 +142,6 @@ Plugin 'ansiesc.vim'
 
 " C/C++
 " Plugin "valloric/youcompleteme"
-
-Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
@@ -543,7 +543,24 @@ let g:session_autoload = "yes"
 " don't lock sessions
 let g:session_lock_enabled = 0
 
-map <Leader>v :tabnew ~/.vimrc<cr>
+" }}}
+
+" UltiSnip --- {{{
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsSnippetDirectories = [ $HOME.'/.vim/UltiSnips' ]
+
+" }}}
+
+" Gundo --- {{{
+
+let g:gundo_playback_delay = 3600
+if !has("python")
+  let g:gundo_enable = 1
+endif
 
 " }}}
 
@@ -600,6 +617,7 @@ noremap! <Right> <Esc>
 " <F?> key mappings
 nnoremap <F1> :OpenSession<cr>
 nnoremap <F2> :source ~/.vimrc<cr>
+nnoremap <F3> :GundoToggle<cr>
 " close the nerd tree with shift-f7
 nnoremap <F8> :NERDTreeTabsToggle<cr>
 nnoremap <F9> :CtrlP<cr>
@@ -644,6 +662,8 @@ map <Leader>d /;3<cr>
 " visual replace selected text
 map <Leader>r :%s::
 map <Leader>rw :%s:<c-w><c-r>:
+
+map <Leader>v :tabnew ~/.vimrc<cr>
 
 " delete trailing whitespace
 map <Leader>x :%s/\s\+$//<cr>
