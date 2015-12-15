@@ -23,26 +23,10 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-" Ruby, Rails, Rake...
-" Plugin 'astashov/vim-ruby-debugger'
-" Plugin 'ecomba/vim-ruby-refactoring'
-" Plugin 'skwp/vim-ruby-conque'
-" Plugin 'tpope/vim-rails'
-" Plugin 'tpope/vim-rake'
-" Plugin 'tpope/vim-rvm'
-" Plugin 'vim-ruby/vim-ruby'
-" Plugin 'vim-scripts/Specky'
-" Plugin 'ck3g/vim-change-hash-syntax'
-
-" Other languages
-" Plugin 'briancollins/vim-jst'
-" Plugin 'pangloss/vim-javascript'
-
 " Html, Xml, Css, Markdown...
 Plugin 'claco/jasmine.vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'groenewege/vim-less'
-" Plugin 'itspriddle/vim-jquery'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'nelstrom/vim-markdown-preview'
@@ -52,19 +36,9 @@ Plugin 'timcharper/textile.vim'
 Plugin 'tpope/vim-haml'
 Plugin 'wavded/vim-stylus'
 
-" Git related...
-" Plugin 'gregsexton/gitv'
-" Plugin 'mattn/gist-vim'
-" Plugin 'skwp/vim-git-grep-rails-partial'
-" Plugin 'tjennings/git-grep-vim'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-git'
-" Plugin 'sjl/threesome.vim'
-" Plugin 'phleet/vim-mercenary'
-
 " General text editing improvements...
 Plugin 'andrewRadev/splitjoin.vim'
-"Plugin 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 Plugin 'shougo/neocomplcache'
 Plugin 'briandoll/change-inside-surroundings.vim'
 Plugin 'godlygeek/tabular'
@@ -74,25 +48,20 @@ if has("python")
    Plugin 'sirver/ultisnips'
    Plugin 'sjl/gundo.vim'
 endif
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
 
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'skwp/vim-easymotion'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'tomtom/tcomment_vim'
-"Plugin 'tpope/vim-bundler'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'vim-scripts/matchit.zip'
 
 " General vim improvements
 Plugin 'marcWeber/vim-addon-mw-utils'
-"Plugin 'bogado/file-line'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-" Plugin 'mattn/webapi-vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -100,17 +69,11 @@ Plugin 'skwp/YankRing.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'skwp/vim-conque'
 Plugin 'tomtom/tlib_vim'
-" Plugin 'tpope/vim-abolish'
-" Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-ragtag'
 " Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 " Plugin 'tpope/vim-unimpaired'
-" Don't add the below git repo makes gvim not boot
-"Plugin 'vim-scripts/AutoTag'
 Plugin 'vim-scripts/lastpos.vim'
-" Plugin 'vim-scripts/sudo.vim'
-" Plugin xsunsmile/showmarks
 Plugin 'terryma/vim-multiple-cursors'
 " vim-misc is required for vim-session
 Plugin 'xolox/vim-misc'
@@ -118,30 +81,19 @@ Plugin 'xolox/vim-session'
 
 " Text objects
 Plugin 'austintaylor/vim-indentobject'
-" Plugin 'bootleq/vim-textobj-rubysymbol'
 Plugin 'coderifous/textobj-word-column.vim'
-" Plugin 'kana/vim-textobj-datetime'
-" Plugin 'kana/vim-textobj-entire'
-" Plugin 'kana/vim-textobj-function'
-" Plugin 'kana/vim-textobj-user'
-" Plugin 'lucapette/vim-textobj-underscore'
 Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'nelstrom/vim-textobj-rubyblock'
-" Plugin 'thinca/vim-textobj-function-javascript'
 Plugin 'vim-scripts/argtextobj.vim'
 
 " Cosmetics, color scheme, Powerline...
 Plugin 'chrisbra/color_highlight'
-"Plugin 'skwp/vim-colors-solarized'
-Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/TagHighlight'
 Plugin 'bogado/file-line'
 Plugin 'flazz/vim-colorschemes'
-" color ansi characters
-Plugin 'ansiesc.vim'
 
 " C/C++
 " Plugin "valloric/youcompleteme"
+Plugin 'ansiesc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -378,13 +330,13 @@ autocmd FocusLost * set number
 autocmd FocusLost * :silent! wall
 
 " resize splits when the window is resized
-au VimResized * :wincmd =
+autocmd VimResized * :wincmd =
 
 autocmd FocusGained * set relativenumber
 autocmd InsertEnter * set number
 autocmd InsertLeave * set relativenumber
 "autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
-"au InsertLeave * match ExtraWhiteSpace /\s\+$/
+"autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " reload vimrc when edited
 autocmd! BufWritePost .vimrc source ~/.vimrc
@@ -400,7 +352,7 @@ augroup g_r
   autocmd BufNewFile,BufRead *.ri set filetype=gr
   autocmd BufNewFile,BufRead *.id set filetype=gr
   autocmd BufNewFile,BufRead *.ix set filetype=gr
-  " if exists('loaded_tcomment')
+  " if exists("loaded_tcomment")
     call tcomment#DefineType('gr', '# %s')
   " endif
   autocmd FileType gr set textwidth=100 colorcolumn=+1
@@ -455,7 +407,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_enable_smart_case = 1
 
 " default # of completions is 100, that's crazy
-let g:neocomplcache_max_list = 10
+let g:neocomplcache_max_list = 15
 
 " words less than 3 letters long aren't worth completing
 let g:neocomplcache_auto_completion_start_length = 3
@@ -552,7 +504,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsSnippetDirectories = [ $HOME.'/.vim/UltiSnips' ]
 
 " }}}
 
