@@ -107,6 +107,7 @@ set splitbelow
 set splitright
 
 set autowrite
+" reload files changed outside vim
 set autoread
 
 " set relativenumber
@@ -124,8 +125,6 @@ set showmode
 set gcr=a:blinkon0
 " no sounds
 set visualbell
-" reload files changed outside vim
-set autoread
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -173,9 +172,6 @@ set fillchars = ""
 
 " add the unnamed register to the clipboard
 set clipboard+=unnamed
-
-" automatically read a file that has changed on disk
-set autoread
 
 set grepprg=grep\ -nH\ $*
 
@@ -365,15 +361,16 @@ augroup END
 " NERDTree --- {{{
 
 " don't display these kinds of files
-let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
-                   \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
-                   \ '\.embed\.manifest$', '\.embed\.manifest.res$',
-                   \ '\.intermediate\.manifest$', '^mt.dep$',
-                   \ '\.pyc$',
-                   \ '\.rtf$', '\.mod$', '\.dif$', '\.dff$', '\.docgen$', '\.rvc',
-                   \ '\.avi$',  '\.mpeg$',
-                   \ '\.jpeg$', '\.jpg$', '\.png$',
-                   \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
+let NERDTreeIgnore = [ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
+                     \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
+                     \ '\.embed\.manifest$', '\.embed\.manifest.res$',
+                     \ '\.intermediate\.manifest$', '^mt.dep$',
+                     \ '\.pyc$',
+                     \ '\.rtf$', '\.mod$', '\.dif$', '\.dff$', '\.docgen$', '\.rvc',
+                     \ '\.avi$',  '\.mpeg$',
+                     \ '\.jpeg$', '\.jpg$', '\.png$',
+                     \ '\.o$',
+                     \ '\.dvi$',  '\.log$',  '\.ps$',  '\.aux$', '\.pdf$', '\.aux$', '\.toc$' ]
 
 " quit nerdtree when selecting file
 let NERDTreeQuitOnOpen = 1
