@@ -356,6 +356,12 @@ augroup g_r
 
 augroup END
 
+" open quickfix window automatically after running :make
+augroup OpenQuickfixWindowAfterMake
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost    l* nested lwindow
+augroup END
+
 " }}}
 
 " NERDTree --- {{{
