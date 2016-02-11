@@ -352,7 +352,9 @@ augroup g_r
     call tcomment#DefineType('gr', '# %s')
   " endif
   autocmd FileType gr set textwidth=100 colorcolumn=+1
-  autocmd FileType gr :UltiSnipsAddFiletypes gr.cpp
+  if has('python')
+     autocmd FileType gr :UltiSnipsAddFiletypes gr.cpp
+  endif
 
 augroup END
 
