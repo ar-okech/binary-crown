@@ -85,11 +85,12 @@ Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/argtextobj.vim'
 
-" Cosmetics, color scheme, Powerline...
+" Cosmetics, color scheme, airline...
 Plugin 'chrisbra/color_highlight'
 Plugin 'vim-scripts/TagHighlight'
 Plugin 'bogado/file-line'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/scrollcolors'
 
 " C/C++
 " Plugin "valloric/youcompleteme"
@@ -488,8 +489,7 @@ set ruler
 set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 
 let g:airline_theme = "luna"
-let g:airline_section_b = '%{strftime("%b %d %H:%M")}'
-let g:airline_section_x = '%{g:beginsessiontime}'
+let g:airline_section_x = '%{strftime("%b %d %H:%M")}'
 let g:airline_section_y = "%y"
 
 " }}}
