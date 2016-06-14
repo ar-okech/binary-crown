@@ -93,8 +93,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/scrollcolors'
 
 " C/C++
-" Plugin "valloric/youcompleteme"
-Plugin 'ansiesc.vim'
+" Plugin 'valloric/youcompleteme'
+" Plugin 'ansiesc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -279,9 +279,9 @@ set smartcase
 " Gui configs --- {{{
 
 " vim ansiescaping plugging
-if has('conceal')
-  autocmd VimEnter * AnsiEsc
-endif
+" if has('conceal')
+  " autocmd VimEnter * AnsiEsc
+" endif
 
 if has("gui_running")
 
@@ -306,11 +306,11 @@ if has("gui_running")
   set guifont=Ubuntu\ Mono:h12,Inconsolata\ XL:h17,Inconsolata:h20,Monaco:h17
 
   " g file formats
-  set fileencodings=cp1252
-  set fileencoding=cp1252
-
-  set fileformats=dos
-  set fileformat=dos
+  " set fileencodings=cp1252
+  " set fileencoding=cp1252
+  "
+  " set fileformats=dos
+  " set fileformat=dos
 
 else
 " dont load csapprox if we no gui support - silences an annoying warning
@@ -338,26 +338,14 @@ autocmd InsertLeave * set relativenumber
 " reload vimrc when edited
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
-" G files
-augroup g_r
-
+augroup python_pep8
   autocmd!
-  autocmd BufNewFile,BufRead *.cxx set filetype=cpp
-  autocmd BufNewFile,BufRead *.hxx set filetype=h
-  autocmd BufNewFile,BufRead *.id set filetype=gr
-  autocmd BufNewFile,BufRead *.ix set filetype=gr
-  autocmd BufNewFile,BufRead *.less set filetype=css
-  autocmd BufNewFile,BufRead *.r set filetype=gr
-  autocmd BufNewFile,BufRead *.rh set filetype=gr
-  autocmd BufNewFile,BufRead *.ri set filetype=gr
-  " if exists("loaded_tcomment")
-    call tcomment#DefineType('gr', '# %s')
-  " endif
-  autocmd FileType gr set textwidth=100 colorcolumn=+1
-  if has('python')
-     autocmd FileType gr :UltiSnipsAddFiletypes gr.cpp
-  endif
+  autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 colorcolumn=+1
+augroup END
 
+augroup js_css_html
+  autocmd!
+  autocmd BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 
 " open quickfix window automatically after running :make
