@@ -1,0 +1,33 @@
+snippet lm "Lamda"
+	 ${1:var} = lambda ${2:vars} : ${0:action}
+endsnippet
+
+snippet for "For"
+	 for ${1:item} in ${2:items}:
+		  ${0}
+endsnippet
+
+snippet imp "Header"
+import ${0}
+endsnippet
+
+snippet if "If"
+    if ${1:condition}:
+    	  ${0}
+endsnippet
+
+snippet ifm "Ifmain"
+if __name__ == '__main__':
+	 ${0}
+endsnippet
+
+snippet wh "While"
+    while ${1:condition}:
+	     ${0}
+endsnippet
+
+snippet pdb "Python debugger"
+    import pdb
+    pdb.set_trace()
+endsnippet
+
