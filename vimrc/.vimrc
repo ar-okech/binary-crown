@@ -16,7 +16,7 @@ endif
 
 filetype off
 
-set runtimepath+=c:\users\okecrich\.vim\bundle\Vundle.vim
+" set runtimepath+=c:\users\okecrich\.vim\bundle\Vundle.vim
 set runtimepath+=~/.vim/bundle/vundle
 
 call vundle#begin()
@@ -42,9 +42,10 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'shougo/neocomplcache'
 Plugin 'briandoll/change-inside-surroundings.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
 
 " snippets
-if has("python")
+if has("python") || has("python3")
    Plugin 'sirver/ultisnips'
    Plugin 'sjl/gundo.vim'
 endif
@@ -91,6 +92,7 @@ Plugin 'vim-scripts/TagHighlight'
 Plugin 'bogado/file-line'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/scrollcolors'
+Plugin 'juneedahamed/vc.vim'
 
 " C/C++
 " Plugin 'valloric/youcompleteme'
@@ -100,6 +102,8 @@ call vundle#end()
 filetype plugin indent on
 
 " }}}
+
+source ~/.vim/ScrollColor.vim
 
 " General config --- {{{
 
@@ -312,19 +316,23 @@ if has("gui_running")
   " set fileformats=dos
   " set fileformat=dos
 
+  autocmd FocusLost * set number
+
+  " save file when losing focus
+  autocmd FocusLost * :silent! wall
+
 else
 " dont load csapprox if we no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
+
+  " save file when cursorhold focus
+  set updatetime=200
+  autocmd CursorHold * silent! update
 endif
 
 " }}}
 
 " Autogroups --- {{{
-
-autocmd FocusLost * set number
-
-" save file when losing focus
-autocmd FocusLost * :silent! wall
 
 " resize splits when the window is resized
 autocmd VimResized * :wincmd =
@@ -340,7 +348,7 @@ autocmd! BufWritePost .vimrc source ~/.vimrc
 
 augroup python_pep8
   autocmd!
-  autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 colorcolumn=+1
+  autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
 
 augroup js_css_html
@@ -437,35 +445,9 @@ let g:neocomplcache_omni_patterns['python'] = ''
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-" }}}
-
-" Timer --- {{{
-
-function! s:getminute(currentsessiontime)
-  let l:hour = strftime("%H",a:currentsessiontime) * 60
-  let l:minute = strftime("%M",a:currentsessiontime)
-  return l:hour + l:minute
-endfunction
-
-function! TimeKeeper()
-   let l:currentsessiontime = localtime()
-   if !exists('g:beginsessiontime')
-      let g:beginsessiontime = l:currentsessiontime
-   endif
-
-   let l:timeduration = s:getminute(l:currentsessiontime) - s:getminute(g:beginsessiontime)
-   let g:beginsessiontime = ( l:timeduration/60 ).'h'.(l:timeduration % 60)
-endfunction
-
-if !exists('g:beginsessiontime')
-   call TimeKeeper()
-endif
-
-autocmd FocusLost * call TimeKeeper()
 
 " }}}
 
@@ -498,7 +480,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:UltiSnipsEditSplit = "vertical"
-
+let g:UltiSnipsSnippetsDir = "~/.vim/ultisnips"
 " }}}
 
 " Gundo --- {{{
@@ -529,7 +511,9 @@ let g:rehash256 = 1
 " colorscheme coldgreen
 " colorscheme BlackSea
 " colorscheme solarized
-colorscheme Chasing_Logic
+" colorscheme Chasing_Logic
+" colorscheme ubaryd
+colorscheme vj
 
 " }}}
 
@@ -543,8 +527,8 @@ highlight EasyMotionTarget ctermbg=black ctermfg=red guibg=black guifg=red
 
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
-let g:bookmark_sign = '>>'
-let g:bookmark_highlight_lines = 1
+" let g:bookmark_sign = '>>'
+" let g:bookmark_highlight_lines = 1
 
 " }}}
 
@@ -561,9 +545,9 @@ noremap  <Right> <Esc>
 noremap! <Right> <Esc>
 
 " <F?> key mappings
-nnoremap <F1> :OpenSession<cr>
 nnoremap <F2> :source ~/.vimrc<cr>
 nnoremap <F3> :GundoToggle<cr>
+nnoremap <F4> :OpenSession<cr>
 " close the nerd tree with shift-f7
 nnoremap <F8> :NERDTreeTabsToggle<cr>
 nnoremap <F9> :CtrlP<cr>
@@ -641,7 +625,7 @@ nnoremap <c-o> <c-o>zz
 " Spelling mistakes --- {{{
 
 " iabbr cyrpt    crypt
-" iabbr Pdb      import pdb; pdb.set_trace()
+" iabbr pdb      import pdb; pdb.set_trace()
 " iabbr reponse  response
 " iabbr None  return None
 
