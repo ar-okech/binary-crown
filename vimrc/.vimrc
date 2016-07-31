@@ -94,6 +94,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/scrollcolors'
 Plugin 'juneedahamed/vc.vim'
 
+" Edit file though ssh, ftp, http
+Plugin 'eiginn/netrw'
 " C/C++
 " Plugin 'valloric/youcompleteme'
 " Plugin 'ansiesc.vim'
