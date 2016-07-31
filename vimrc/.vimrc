@@ -103,7 +103,7 @@ filetype plugin indent on
 
 " }}}
 
-source ~/.vim/ScrollColor.vim
+" source ~/.vim/ScrollColor.vim
 
 " General config --- {{{
 
@@ -323,7 +323,7 @@ if has("gui_running")
 
 else
 " dont load csapprox if we no gui support - silences an annoying warning
-  let g:CSApprox_loaded = 1
+  " let g:CSApprox_loaded = 1
 
   " save file when cursorhold focus
   set updatetime=200
