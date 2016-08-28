@@ -96,8 +96,8 @@ Plugin 'juneedahamed/vc.vim'
 
 " Edit file though ssh, ftp, http
 Plugin 'eiginn/netrw'
-" C/C++
-" Plugin 'valloric/youcompleteme'
+" C/C++, python
+Plugin 'valloric/youcompleteme'
 " Plugin 'ansiesc.vim'
 
 call vundle#end()
@@ -447,7 +447,7 @@ let g:neocomplcache_omni_patterns['python'] = ''
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
@@ -482,7 +482,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<c-b>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsSnippetsDir = "~/.vim/ultisnips"
+" let g:UltiSnipsSnippetsDir = "~/.vim/ultisnips"
 " }}}
 
 " Gundo --- {{{
@@ -515,7 +515,8 @@ let g:rehash256 = 1
 " colorscheme solarized
 " colorscheme Chasing_Logic
 " colorscheme ubaryd
-colorscheme vj
+" colorscheme vj
+colorscheme CandyPaper
 
 " }}}
 
